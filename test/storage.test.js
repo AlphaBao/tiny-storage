@@ -6,7 +6,7 @@ const storeTwo = new Storage('storeTwo');
 
 describe('Storage Tests', () => {
 
-  it('get with an unexist key', () => {
+  it('get a non-existent key', () => {
     const key = String(Date.now());
     expect(storeOne.get(key)).to.be.equal(null);
   });
@@ -51,10 +51,13 @@ describe('Storage Tests', () => {
     storeOne.set('person', 'Jim');
     storeOne.set('number', 11);
     storeOne.set('string', 'all-test');
+    storeOne.set('animals', [ 'fox', 'dog' ]);
     const data = storeOne.all();
     expect(data.person).to.be.equal('Jim');
     expect(data.number).to.be.equal(11);
     expect(data.string).to.be.equal('all-test');
+    expect(data.animals[0]).to.be.equal('fox');
+    expect(data.animals[1]).to.be.equal('dog');
   });
 
 });
