@@ -1,0 +1,19 @@
+{
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "env": {
+    "jasmine": true,
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "no-console": "off",
+    "no-use-before-define": ["error", { "functions": true, "classes": true }],
+    "semi": 2
+  }
+}

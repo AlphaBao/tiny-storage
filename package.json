@@ -10,7 +10,9 @@
   "scripts": {
     "dev": "webpack --mode development --watch",
     "prod": "webpack --mode production",
-    "test": "karma start --single-run",
+    "lint": "eslint src test",
+    "ci": "karma start --single-run --browsers Firefox && npm run lint",
+    "test": "karma start --single-run && npm run lint",
     "watch": "karma start"
   },
   "keywords": [
