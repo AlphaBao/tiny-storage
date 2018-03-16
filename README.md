@@ -7,7 +7,7 @@ A tiny localStorage util
 ## Documentation
 
 
-### Usage with namespace
+### Use `localStorage` within namespaces
 
 ```javascript
 import Storage from 'storage.js';
@@ -16,7 +16,7 @@ const store = new Storage('store');
 const cart = new Storage('cart');
 
 store.set('book-001', 'Robinson Crusoe');
-store.set('book-002', 'Grimm's Fairy Tales');
+store.set('book-002', "Grimm's Fairy Tales");
 store.set('book-003', 'Martin Eden');
 
 cart.set('book-001', 'The Golden Bough');
@@ -24,7 +24,7 @@ cart.set('book-002', 'Moon and Sixpence');
 cart.set('book-003', 'Leaves of Grass');
 
 store.get('book-001'); // 'Robinson Crusoe'
-store.get('book-002'); // 'Grimm's Fairy Tales'
+store.get('book-002'); // "Grimm's Fairy Tales"
 store.get('book-003'); // 'Martin Eden'
 
 cart.get('book-001'); // 'The Golden Bough'
