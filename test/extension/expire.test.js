@@ -1,13 +1,15 @@
 import {expect} from 'chai';
-import Storage from 'storage.js';
+import ExpireStorage from 'extension/expire.js';
 
-const storeOne = new Storage('storeOne');
-const storeTwo = new Storage('storeTwo');
+const storeOne = new ExpireStorage('expireStorageOne');
+const storeTwo = new ExpireStorage('expireStorageTwo');
+const storeThree = new ExpireStorage('expireStorageThree');
 
 storeOne.clear();
 storeTwo.clear();
+storeThree.clear();
 
-describe('Storage Tests', () => {
+describe('ExpireStorage Tests', () => {
 
   it('get a non-existent key', () => {
     const key = String(Date.now());
@@ -72,6 +74,27 @@ describe('Storage Tests', () => {
     expect(data.string).to.be.equal('all-test');
     expect(data.animals[0]).to.be.equal('fox');
     expect(data.animals[1]).to.be.equal('dog');
+  });
+
+  it('get an expired key', (done) => {
+    storeOne.set('exp', 'val', 1);
+    setTimeout(() => {
+      expect(storeOne.get('exp')).to.be.equal(null);
+      done();
+    }, 1500);
+  });
+
+  it('get an expired key: 0', () => {
+    storeOne.set('exp0', 'val', 0);
+    expect(storeOne.get('exp0')).to.be.equal(null);
+  });
+
+  it('get a non-expiring key', (done) => {
+    storeThree.set('k', 'val', 60 * 60 * 60);
+    setTimeout(() => {
+      expect(storeThree.get('k')).to.be.equal('val');
+      done();
+    }, 1000);
   });
 
 });
