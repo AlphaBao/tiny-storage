@@ -1,19 +1,11 @@
 const local = {
+  keys() {
+    return Object.keys(localStorage);
+  },
+
   get(key) {
     const data = localStorage.getItem(key);
     return JSON.parse(data);
-  },
-
-  all(namespace) {
-    const prefix = `${namespace}.`;
-    return Object
-      .keys(localStorage)
-      .reduce((prev, curr) => {
-        if (curr.indexOf(prefix) === 0) {
-          prev[curr.replace(prefix, '')] = this.get(curr);
-        }
-        return prev;
-      }, {});
   },
 
   set(key, value) {
@@ -22,16 +14,6 @@ const local = {
 
   remove(key) {
     localStorage.removeItem(key);
-  },
-
-  clear(namespace) {
-    Object
-      .keys(localStorage)
-      .forEach(key => {
-        if (key.indexOf(`${namespace}.`) === 0) {
-          localStorage.removeItem(key);
-        }
-      });
   },
 
   clearAll() {
@@ -44,8 +26,12 @@ class Storage {
     this.namespace = namespace;
   }
 
+  prefix() {
+    return `${this.namespace}.`;
+  }
+
   realKey(key) {
-    return `${this.namespace}.${key}`;
+    return `${this.prefix()}${key}`;
   }
 
   get(key) {
@@ -53,7 +39,18 @@ class Storage {
   }
 
   all() {
-    return local.all(this.namespace);
+    return this.keys()
+      .reduce((prev, curr) => {
+        prev[curr] = this.get(curr);
+        return prev;
+      }, {});
+  }
+
+  keys() {
+    const prefix = this.prefix();
+    return local.keys()
+      .filter(key => key.indexOf(prefix) === 0)
+      .map(key => key.replace(prefix, ''));
   }
 
   set(key, value) {
@@ -72,7 +69,7 @@ class Storage {
   }
 
   clear() {
-    local.clear(this.namespace);
+    this.keys().forEach(key => this.remove(key));
   }
 
   clearAllStorage() {
