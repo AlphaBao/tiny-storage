@@ -7,12 +7,16 @@ class ExpireStorage extends PayloadStorage {
     this.OPTIONS_KEY = optionsKey;
   }
 
+  now() {
+    return Math.floor(Date.now() / 1000);
+  }
+
   get(key) {
     const data = super.get(key);
     const expire = data[this.OPTIONS_KEY] && data[this.OPTIONS_KEY].expire;
 
     if (Number.isInteger(expire)) {
-      if (expire > Math.floor(Date.now() / 1000)) {
+      if (expire > this.now()) {
         return data[this.PAYLOAD_KEY];
       } else {
         this.remove(key);
@@ -25,7 +29,7 @@ class ExpireStorage extends PayloadStorage {
 
   set(key, value, seconds) {
     if (Number.isInteger(seconds)) {
-      const expire = Math.floor(Date.now() / 1000) + seconds;
+      const expire = this.now() + seconds;
       return super.set(key, value, { expire });
     } else {
       return super.set(key, value);
