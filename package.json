@@ -1,12 +1,12 @@
 {
   "name": "tiny-storage",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A tiny localStorage util",
   "repository": {
     "type": "git",
     "url": "https://github.com/AlphaBao/tiny-storage.git"
   },
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
     "dev": "webpack --mode development --watch",
     "prod": "webpack --mode production",
@@ -20,11 +20,12 @@
     "local",
     "storage"
   ],
-  "author": "tianfangye.com",
+  "author": "https://alphabao.github.io/",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.7.5",
-    "babel-loader": "^8.0.6",
+    "@babel/preset-env": "^7.13.5",
+    "babel-loader": "^8.2.2",
     "chai": "^4.2.0",
     "eslint": "^7.6.0",
     "eslint-friendly-formatter": "^4.0.1",

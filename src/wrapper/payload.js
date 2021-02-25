@@ -1,10 +1,10 @@
-import Storage from 'storage.js';
+import TinyStorage from 'storage.js';
 
 function isObject(value) {
   return typeof value === 'object' && value !== null;
 }
 
-class PayloadStorage extends Storage {
+class PayloadStorage extends TinyStorage {
   constructor(namespace, payloadKey, optionsKey) {
     super(namespace);
     this.PAYLOAD_KEY = payloadKey;

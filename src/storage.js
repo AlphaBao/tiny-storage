@@ -21,7 +21,7 @@ const local = {
   }
 };
 
-class Storage {
+class TinyStorage {
   constructor(namespace) {
     this.namespace = namespace;
   }
@@ -77,4 +77,4 @@ class Storage {
   }
 }
 
-export default Storage;
+export default TinyStorage;

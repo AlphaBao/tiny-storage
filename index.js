@@ -1,7 +1,5 @@
-import Storage from 'storage.js';
-
-new Storage('app');
-
+import TinyStorage from 'storage.js';
 import ExpireStorage from 'extension/expire.js';
 
-new ExpireStorage('expireStorage');
+export { TinyStorage };
+export { ExpireStorage };

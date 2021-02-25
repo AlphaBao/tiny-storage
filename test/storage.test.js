@@ -1,13 +1,13 @@
 import {expect} from 'chai';
-import Storage from 'storage.js';
+import TinyStorage from 'storage.js';
 
-const storeOne = new Storage('storeOne');
-const storeTwo = new Storage('storeTwo');
+const storeOne = new TinyStorage('storeOne');
+const storeTwo = new TinyStorage('storeTwo');
 
 storeOne.clear();
 storeTwo.clear();
 
-describe('Storage Tests', () => {
+describe('TinyStorage Tests', () => {
 
   it('get a non-existent key', () => {
     const key = String(Date.now());

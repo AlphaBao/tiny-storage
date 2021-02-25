@@ -6,6 +6,9 @@ module.exports = {
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
   },
   entry: './index.js',
+  output: {
+    libraryTarget: 'umd'
+  },
   module: {
     rules: [
       {
