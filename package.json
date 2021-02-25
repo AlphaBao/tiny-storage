@@ -1,6 +1,6 @@
 {
-  "name": "tiny-storage",
-  "version": "0.1.6",
+  "name": "@alphabao/tiny-storage",
+  "version": "0.1.7",
   "description": "A tiny localStorage util",
   "repository": {
     "type": "git",
