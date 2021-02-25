@@ -57,8 +57,7 @@ class TinyStorage {
     try {
       local.set(this.realKey(key), value);
     } catch (e) {
-      console.log(`set method error: ${JSON.stringify(e)}`);
-      return false;
+      throw new Error(`TinyStorage set error: [${this.realKey(key)}: value]`);
     }
 
     return true;
