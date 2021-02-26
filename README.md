@@ -100,3 +100,19 @@ myStore.all();
 //   animals: [ 'fox', 'dog' ]
 // }
 ```
+
+### ExpireStorage
+
+```javascript
+import { ExpireStorage } from '@alphabao/tiny-storage';
+
+const store = new ExpireStorage('expStore');
+
+// get an expired key
+store.set('exp0', 'val', 0);
+store.get('exp0'); // output: null
+
+// get an unexpired key
+store.set('k', 'val', 60 * 60 * 60);
+store.get('k'); // output: 'val'
+```
