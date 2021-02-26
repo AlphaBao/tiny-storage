@@ -27,8 +27,8 @@ npm install @alphabao/tiny-storage
 ```javascript
 import { TinyStorage } from '@alphabao/tiny-storage';
 
-const store = new Storage('store');
-const cart = new Storage('cart');
+const store = new TinyStorage('store');
+const cart = new TinyStorage('cart');
 
 store.set('book-001', 'Robinson Crusoe');
 store.set('book-002', "Grimm's Fairy Tales");
@@ -87,7 +87,7 @@ store.get('lemon'); // null
 ```javascript
 import { TinyStorage } from '@alphabao/tiny-storage';
 
-const myStore = new Storage('store');
+const myStore = new TinyStorage('store');
 
 myStore.set('apple', 3);
 myStore.set('lemon', 4);
