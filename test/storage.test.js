@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import TinyStorage from 'storage.js';
+import {TinyStorage} from '../src';
 
 const storeOne = new TinyStorage('storeOne');
 const storeTwo = new TinyStorage('storeTwo');

@@ -1,4 +1,4 @@
-import PayloadStorage from 'wrapper/payload.js';
+import PayloadStorage from '../wrapper/payload.js';
 
 class ExpireStorage extends PayloadStorage {
   constructor(namespace, payloadKey = ';p', optionsKey = ';o') {

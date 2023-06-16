@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import ExpireStorage from 'extension/expire.js';
+import {ExpireStorage} from '../../src';
 
 const storeOne = new ExpireStorage('expireStorageOne');
 const storeTwo = new ExpireStorage('expireStorageTwo');

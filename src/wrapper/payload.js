@@ -1,4 +1,4 @@
-import TinyStorage from 'storage.js';
+import TinyStorage from '../storage.js';
 
 function isObject(value) {
   return typeof value === 'object' && value !== null;

@@ -1,14 +1,11 @@
 # tiny-storage
 A tiny localStorage util
 
-[![Build Status][travis-image]][travis-url]
 [![NPM version][npm-image]][npm-url]
 [![License][license-image]][npm-url]
 
-[travis-image]: https://img.shields.io/travis/alphabao/tiny-storage?style=flat-square
 [npm-image]: https://img.shields.io/npm/v/@alphabao/tiny-storage?style=flat-square
 [license-image]: https://img.shields.io/npm/l/@alphabao/tiny-storage?style=flat-square
-[travis-url]: https://travis-ci.org/AlphaBao/tiny-storage
 [npm-url]: https://www.npmjs.com/package/@alphabao/tiny-storage
 
 

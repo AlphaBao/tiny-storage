@@ -1,15 +1,23 @@
 {
   "name": "@alphabao/tiny-storage",
-  "version": "0.1.11",
+  "version": "0.2.1",
   "description": "A tiny localStorage util",
   "repository": {
     "type": "git",
     "url": "https://github.com/AlphaBao/tiny-storage.git"
   },
-  "main": "dist/main.js",
+  "main": "dist/index.cjs.js",
+  "exports": {
+    "import": {
+      "default": "./dist/index.esm.js"
+    },
+    "require": {
+      "default": "./dist/index.cjs.js"
+    }
+  },
   "scripts": {
-    "dev": "webpack --mode development --watch",
-    "prod": "webpack --mode production",
+    "dev": "vite",
+    "build": "vite build",
     "lint": "eslint src test",
     "ci": "karma start --single-run --browsers Firefox && npm run lint",
     "test": "karma start --single-run && npm run lint",
@@ -23,22 +31,13 @@
   "author": "https://alphabao.github.io/",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.13.1",
-    "@babel/preset-env": "^7.13.5",
-    "babel-loader": "^8.2.2",
-    "chai": "^4.3.0",
-    "eslint": "^7.20.0",
-    "eslint-friendly-formatter": "^4.0.1",
-    "eslint-loader": "^4.0.2",
-    "jasmine-core": "^3.5.0",
-    "karma": "^6.4.1",
-    "karma-chai": "^0.1.0",
-    "karma-chrome-launcher": "^3.1.0",
-    "karma-firefox-launcher": "^2.1.0",
-    "karma-jasmine": "^3.3.1",
-    "karma-mocha": "^2.0.1",
-    "karma-webpack": "^4.0.2",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^4.5.0"
+    "chai": "^4.3.7",
+    "eslint": "^8.41.0",
+    "karma": "^6.4.2",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-firefox-launcher": "^2.1.2",
+    "karma-jasmine": "^5.1.0",
+    "karma-vite": "^1.0.4",
+    "vite": "^4.3.2"
   }
 }
